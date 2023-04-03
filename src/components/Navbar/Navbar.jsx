@@ -9,8 +9,9 @@ const Navbar = () => {
   return (
     <div className={styles}>
       <nav>
-        <Link to="/login">GO TO LOGIN</Link>
-        <Link to="/signin">GO TO SIGNIN</Link>
+        <Link to="/login">LOGIN  </Link>
+
+        <Link to="/signin">SIGNIN</Link>
       </nav>
     </div>
   )
