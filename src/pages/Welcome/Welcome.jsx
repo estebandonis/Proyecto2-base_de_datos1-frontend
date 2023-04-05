@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Navbar } from '../../components'
+import { Navbar, ShowAll } from '../../components'
 
 import { styles } from './Welcome.module.css'
 
@@ -10,6 +10,7 @@ const Welcome = () => {
     <div className={styles}>
       PAGE Welcome
        <Navbar />
+       <ShowAll />
     </div>
   )
 }

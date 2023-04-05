@@ -1,3 +1,4 @@
-import Navbar from './Navbar';
+import Navbar from './Navbar'
+import ShowAll from './ShowAll'
 
-export { Navbar }
+export { Navbar, ShowAll }
