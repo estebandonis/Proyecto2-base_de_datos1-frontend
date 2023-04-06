@@ -1,11 +1,5 @@
 .styles {
-  filter: drop-shadow(0 0 2px #000000aa);
-  background-color: white;
-  border-radius: 20px;
-  width: 100%;
-  height: 100px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: normal;
 }

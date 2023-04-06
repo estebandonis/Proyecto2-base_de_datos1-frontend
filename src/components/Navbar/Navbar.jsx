@@ -5,7 +5,6 @@ import { useHistory, Link } from 'react-router-dom'
 import { styles } from './Navbar.module.css'
 
 const Navbar = () => {
-  console.log('Navbar')
   return (
     <div className={styles}>
       <nav>
