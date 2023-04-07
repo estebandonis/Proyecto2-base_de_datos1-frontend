@@ -7,35 +7,34 @@ const ShowAll = ({ json }) => {
 
   return (
     <div className={styles}>
-      {json.map((row, index) => {
-        return <div>
-          <table style={{
+      <table style={{
             width: `100%`,
             border:`1px solid white`
             }}>
-            <tr style={{border:`1px solid white`}}>
-              <th>medicoid</th>
-              <th>nombre</th>
-              <th>apellido</th>
-              <th>direccion</th>
-              <th>telefono</th>
-              <th>numero_colegiado</th>
-              <th>especialidad</th>
-              <th>lugarid</th>
+            <tr>
+              <th>ID del Medico</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Direccion</th>
+              <th>Telefono</th>
+              <th>Numero de Colegiado</th>
+              <th>Especialidad</th>
+              <th>ID del Lugar De Trabajo</th>
             </tr>
-            <tr style={{border:`1px solid white`}}>
-              <th>{row.medicoid}</th>
-              <th>{row.nombre}</th>
-              <th>{row.apellido}</th>
-              <th>{row.direccion}</th>
-              <th>{row.telefono}</th>
-              <th>{row.numero_colegiado}</th>
-              <th>{row.especialidad}</th>
-              <th>{row.lugarid}</th>
-            </tr>
-          </table>
-        </div>
-      })}
+
+        {json.map((row, index) => {
+          return <tr>
+                <th>{row.medicoid}</th>
+                <th>{row.nombre}</th>
+                <th>{row.apellido}</th>
+                <th>{row.direccion}</th>
+                <th>{row.telefono}</th>
+                <th>{row.numero_colegiado}</th>
+                <th>{row.especialidad}</th>
+                <th>{row.lugarid}</th>
+              </tr>
+        })}
+      </table>
     </div>
   )
 }

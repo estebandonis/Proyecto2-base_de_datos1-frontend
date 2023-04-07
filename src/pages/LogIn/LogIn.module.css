@@ -1,6 +1,13 @@
 .styles {
-  width: 100vw;
-  height: 100vh;
+  filter: drop-shadow(0 0 2px #000000aa);
+  background-color: white;
+  border-radius: 20px;
+  width: 400px;
+  height: 440px;
   background: '#CCC';
-  color: '#F5F5F5';
+  color: black;
+  display: flex;
+  flex-direction: column;  
+  justify-content: space-betweens;;
+  align-items: center;
 }

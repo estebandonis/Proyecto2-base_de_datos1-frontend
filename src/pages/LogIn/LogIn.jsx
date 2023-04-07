@@ -5,11 +5,17 @@ import { useHistory, Link } from 'react-router-dom'
 import { styles } from './LogIn.module.css'
 
 const LogIn = () => {
-  console.log('LogIn')
   return (
     <div className={styles}>
-      PAGE LogIn
-      <Link to="/signin">GO TO SIGNIN</Link>
+      <h1>Log In</h1>
+      <h2>Correo</h2>
+      <input type="text" placeholder="Escriba su correo"/>
+      <h2>Contraseña</h2>
+      <input type="text" placeholder="Escriba su contraseña"/>
+      <br />
+      <input type="submit" value="INGRESAR"/>
+      <br />
+      <Link to="/signin">Registrate</Link>
     </div>
   )
 }
