@@ -1,7 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Navbar, ShowAll } from '../../components'
 
 import { styles } from './Expediente.module.css'
@@ -9,33 +9,49 @@ import { styles } from './Expediente.module.css'
 const Expediente = () => {
   
   const [responseData, setResponseData] = useState(null)
+  const [inputText, setInputText] = useState("");
+  const [submit, setSubmit] = useState(false)
+  const [show, setShow] = useState(false)
 
-  const getMedicosById = async() => {
+  const handleChange = (valor) => {
+    // 👇 Store the input value to local state
+    setInputText(valor.target.value);
+    setSubmit(false)
+  };
+
+  const handleClick = async() => {
+    await loadMedicoByNum()
+    setShow(true)
+  }
+
+  const getMedicoByNum = async() => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/medicos/1")
-      console.log(response.data)
+      const response = await Axios.get(`http://localhost:3000/api/v1/medicos/${inputText}`)
       return response.data
     } catch (error) {
       console.error(error);
     }
   }
 
-  const loadMedicosById = async () => {
-    setResponseData(await getMedicosById())
+  const loadMedicoByNum = async () => {
+    setResponseData(await getMedicoByNum())
   }
 
-  useEffect(() => {
-    loadMedicosById()
-  }, [])
-
-  if (!responseData) {
-    return 'Loading...'
-  }
+  /*useEffect(() => {
+    loadMedicoByNum()
+    setShow(true)
+  }, [])*/
   
   return (
     <div className={styles}>
       <Navbar />
-      <ShowAll json={responseData}/>
+      <input type="text" onChange={handleChange} />
+      <button onClick={handleClick}>Submit</button>
+      {
+        show?
+        <ShowAll json={responseData}/>
+        :null
+      }
     </div>
   )
 }
