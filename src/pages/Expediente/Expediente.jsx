@@ -10,13 +10,11 @@ const Expediente = () => {
   
   const [responseData, setResponseData] = useState(null)
   const [inputText, setInputText] = useState("");
-  const [submit, setSubmit] = useState(false)
   const [show, setShow] = useState(false)
 
   const handleChange = (valor) => {
     // 👇 Store the input value to local state
     setInputText(valor.target.value);
-    setSubmit(false)
   };
 
   const handleClick = async() => {
@@ -36,11 +34,6 @@ const Expediente = () => {
   const loadMedicoByNum = async () => {
     setResponseData(await getMedicoByNum())
   }
-
-  /*useEffect(() => {
-    loadMedicoByNum()
-    setShow(true)
-  }, [])*/
   
   return (
     <div className={styles}>
