@@ -40,7 +40,7 @@ const LogIn = () => {
     })}
 
     if (tipo == "administrador"){
-      history.push("/busquedamensual")
+      history.push("/medicoUpdate_mantenimiento")
     }
     else {
       history.push("/expediente")

@@ -5,6 +5,10 @@ import Welcome from './Welcome'
 import BusquedaMensual from './BusquedaMensual'
 import Expediente from './Expediente'
 import Reportes from './Reportes'
+import MedicoUpdate_mantenimiento from './MedicoUpdate_mantenimiento'
+import MedicoAdd_mantenimiento from './MedicoAdd_mantenimiento'
+import Paciente_mantenimiento from './Paciente_mantenimiento'
+import Usuario_mantenimiento from './Usuario_mantenimiento'
 
 import { Switch, Route } from 'react-router-dom'
 
@@ -31,6 +35,18 @@ const Page = () => {
       </Route>
       <Route path="/reportes">
         <Reportes />
+      </Route>
+      <Route path="/medicoUpdate_mantenimiento">
+        <MedicoUpdate_mantenimiento />
+      </Route>
+      <Route path="/medicoAdd_mantenimiento">
+        <MedicoAdd_mantenimiento />
+      </Route>
+      <Route path="/paciente_mantenimiento">
+        <Paciente_mantenimiento />
+      </Route>
+      <Route path="/usuario_mantenimiento">
+        <Usuario_mantenimiento />
       </Route>
       <Route path="/">
         <Welcome />

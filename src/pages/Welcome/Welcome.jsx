@@ -11,7 +11,6 @@ const Welcome = () => {
       <div className={styles}>
         <Link to="/login" className={login}>Log In</Link>
         <Link to="/signin" className={signin}>Sign In</Link>
-        <Link to="/busquedamensual">Busqueda Mensual</Link>
       </div>
     </dir>
   )
