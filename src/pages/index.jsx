@@ -8,7 +8,8 @@ import Reportes from './Reportes'
 import MedicoUpdate_mantenimiento from './MedicoUpdate_mantenimiento'
 import MedicoAdd_mantenimiento from './MedicoAdd_mantenimiento'
 import Paciente_mantenimiento from './Paciente_mantenimiento'
-import Usuario_mantenimiento from './Usuario_mantenimiento'
+import UsuarioUpdate_mantenimiento from './UsuarioUpdate_mantenimiento'
+import UsuarioAdd_mantenimiento from './UsuarioAdd_mantenimiento'
 
 import { Switch, Route } from 'react-router-dom'
 
@@ -45,8 +46,11 @@ const Page = () => {
       <Route path="/paciente_mantenimiento">
         <Paciente_mantenimiento />
       </Route>
-      <Route path="/usuario_mantenimiento">
-        <Usuario_mantenimiento />
+      <Route path="/usuarioUpdate_mantenimiento">
+        <UsuarioUpdate_mantenimiento />
+      </Route>
+      <Route path="/usuarioAdd_mantenimiento">
+        <UsuarioAdd_mantenimiento />
       </Route>
       <Route path="/">
         <Welcome />

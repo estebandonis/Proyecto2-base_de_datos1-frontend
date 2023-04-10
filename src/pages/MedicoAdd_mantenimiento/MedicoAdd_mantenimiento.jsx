@@ -68,19 +68,19 @@ const MedicoAdd_mantenimiento = () => {
     <div className={styles}>
       <Navbar_mantenimiento />
       <h2>Nombre</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNombre}/>
+      <input type="text" placeholder="Escriba el nombre" onChange={handleChangeNombre}/>
       <br />
 
       <h2>Apellido</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeApellido}/>
+      <input type="text" placeholder="Escriba el apellido" onChange={handleChangeApellido}/>
       <br />
 
       <h2>Direccion</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeDireccion}/>
+      <input type="text" placeholder="Escriba la direccion" onChange={handleChangeDireccion}/>
       <br />
 
       <h2>Telefono</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeTelefono}/>
+      <input type="text" placeholder="Escriba el telefono" onChange={handleChangeTelefono}/>
       <br />
 
       <h2>Numero de colegiado</h2>
@@ -88,11 +88,11 @@ const MedicoAdd_mantenimiento = () => {
       <br />
 
       <h2>Especialidad</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeEspecialidad}/>
+      <input type="text" placeholder="Escriba la especialidad" onChange={handleChangeEspecialidad}/>
       <br />
 
       <h2>Lugarid</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeLugarId}/>
+      <input type="text" placeholder="Escriba el id del lugar" onChange={handleChangeLugarId}/>
       <br />
       <button onClick={handleClick}>Agregar</button>
     </div>

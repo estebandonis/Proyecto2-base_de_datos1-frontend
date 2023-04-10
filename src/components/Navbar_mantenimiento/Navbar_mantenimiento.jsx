@@ -11,7 +11,8 @@ const Navbar_mantenimiento = () => {
         <Link to="/medicoUpdate_mantenimiento">Actualizar Medico</Link>
         <Link to="/medicoAdd_mantenimiento">Agregar Medico</Link>
         <Link to="/paciente_mantenimiento">Paciente</Link>
-        <Link to="/usuario_mantenimiento">Usuarios</Link>
+        <Link to="/usuarioAdd_mantenimiento">Agregar Usuario</Link>
+        <Link to="/usuarioUpdate_mantenimiento">Actualizar Usuario</Link>
       </nav>
     </div>
   )
