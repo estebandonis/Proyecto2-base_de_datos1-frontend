@@ -2,33 +2,62 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import { Navbar, ShowAll } from '../../components'
+import { Navbar, ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos } from '../../components'
 
 import { styles, inputs, bloques } from './Expediente.module.css'
 
 const Expediente = () => {
   
   const [responseData, setResponseData] = useState(null)
-  const [responseData1, setResponseData1] = useState(null)
-  const [inputText, setInputText] = useState("");
+  const [examenes, setExamenes] = useState(null)
+  const [cirugias, setCirugias] = useState(null)
+  const [medicos, setMedicos] = useState(null)
+  const [medicamentos, setMedicamentos] = useState(null)
+  const [inputText, setInputText] = useState("")
   const [show, setShow] = useState(false)
 
-  const handleChange = (valor) => {
-    // 👇 Store the input value to local state
-    setInputText(valor.target.value);
-  };
-
-  const handleClick = async() => {
-    await loadMedicoByNum()
-    await loadMedicos()
-    console.log(responseData1)
-    setShow(true)
+  const getPacientesByDPI = async() => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/api/v1/pacientes/${inputText}`)
+      return response.data
+    } catch (error) {
+      console.error(error);
+    }
   }
 
+  const loadPacienteByDPI = async () => {
+    setResponseData(await getPacientesByDPI())
+  }
+
+  const getExamenes = async() => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/api/v1/visitas/get_examenes/${inputText}`)
+      return response.data
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const loadExamenes = async () => {
+    setExamenes(await getExamenes())
+  }
+
+  const getCirugias = async() => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/api/v1/visitas/get_cirugias/${inputText}`)
+      return response.data
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const loadCirugias = async () => {
+    setCirugias(await getCirugias())
+  }
+  
   const getMedicos = async() => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/medicos/")
-      console.log(response.data)
+      const response = await Axios.get(`http://localhost:3000/api/v1/visitas/get_medicosOfPaciente/${inputText}`)
       return response.data
     } catch (error) {
       console.error(error);
@@ -36,22 +65,36 @@ const Expediente = () => {
   }
 
   const loadMedicos = async () => {
-    setResponseData1(await getMedicos())
+    setMedicos(await getMedicos())
   }
 
-  const getMedicoByNum = async() => {
+  const getMedicamentos = async() => {
     try {
-      const response = await Axios.get(`http://localhost:3000/api/v1/medicos/${inputText}`)
+      const response = await Axios.get(`http://localhost:3000/api/v1/visitas/get_medicamentosYevolucion/${inputText}`)
       return response.data
     } catch (error) {
       console.error(error);
     }
   }
 
-  const loadMedicoByNum = async () => {
-    setResponseData(await getMedicoByNum())
+  const loadMedicamentos = async () => {
+    setMedicamentos(await getMedicamentos())
   }
-  
+
+  const handleChange = (valor) => {
+    // 👇 Store the input value to local state
+    setInputText(valor.target.value)
+  };
+
+  const handleClick = async() => {
+    await loadPacienteByDPI()
+    await loadExamenes()
+    await loadCirugias()
+    await loadMedicos()
+    await loadMedicamentos()
+    setShow(true)
+  }
+
   return (
     <div className={styles}>
       <Navbar />
@@ -60,14 +103,34 @@ const Expediente = () => {
         <button onClick={handleClick}>Submit</button>
       </div>
       <div className={bloques}>
+      <h2>Datos Paciente</h2>
         {
           show?
-          <ShowAll json={responseData}/>
+          <ShowAllPacientes json={responseData}/>
           :null
         }
+      <h2>Examenes Paciente</h2>
         {
           show?
-          <ShowAll json={responseData1}/>
+          <ShowAllExamenes json={examenes}/>
+          :null
+        }
+      <h2>Cirugías practicadas</h2>
+        {
+          show?
+          <ShowAllCirugias json={cirugias}/>
+          :null
+        }
+      <h2>Medicos que trataron al paciente</h2>
+        {
+          show?
+          <ShowAllMedicosPaciente json={medicos}/>
+          :null
+        }
+      <h2>Medicamentos y evolucion</h2>
+        {
+          show?
+          <ShowAllMedicamentos json={medicamentos}/>
           :null
         }
       </div>
