@@ -34,7 +34,6 @@ const Reportes = () => {
   
   return (
     <div className={styles}>
-      <Navbar />
       <ShowAll json={responseData}/>
     </div>
   )

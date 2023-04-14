@@ -97,7 +97,6 @@ const Expediente = () => {
 
   return (
     <div className={styles}>
-      <Navbar />
       <div className={inputs}>
         <input type="text" onChange={handleChange} placeholder='Ingrese el dpi del paciente'/>
         <button onClick={handleClick}>Submit</button>

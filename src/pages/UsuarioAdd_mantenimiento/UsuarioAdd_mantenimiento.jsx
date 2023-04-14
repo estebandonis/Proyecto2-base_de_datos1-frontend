@@ -42,7 +42,6 @@ const UsuarioAdd_mantenimiento = () => {
 
   return (
     <div className={styles}>
-      <Navbar_mantenimiento />
 
       <h2>Correo</h2>
       <input type="text" placeholder="Escriba el correo" onChange={handleChangeCorreo}/>

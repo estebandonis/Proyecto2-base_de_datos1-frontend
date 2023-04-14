@@ -39,7 +39,7 @@ const SignIn = () => {
 
   const handleClick = async() => {
     await addUser()
-    history.push('/reportes')
+    history.push('/interfazmedico')
   }
 
   return (

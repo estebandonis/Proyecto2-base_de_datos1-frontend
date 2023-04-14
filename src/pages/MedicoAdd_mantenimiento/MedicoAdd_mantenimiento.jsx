@@ -66,7 +66,6 @@ const MedicoAdd_mantenimiento = () => {
 
   return (
     <div className={styles}>
-      <Navbar_mantenimiento />
       <h2>Nombre</h2>
       <input type="text" placeholder="Escriba el nombre" onChange={handleChangeNombre}/>
       <br />

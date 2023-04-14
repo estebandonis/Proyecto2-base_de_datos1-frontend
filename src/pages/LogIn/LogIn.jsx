@@ -40,10 +40,10 @@ const LogIn = () => {
     })}
 
     if (tipo == "administrador"){
-      history.push("/medicoUpdate_mantenimiento")
+      history.push("/mantenimiento")
     }
     else {
-      history.push("/expediente")
+      history.push("/interfazmedico")
     }
   }
 

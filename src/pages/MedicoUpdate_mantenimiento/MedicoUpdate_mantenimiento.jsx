@@ -129,7 +129,6 @@ const MedicoUpdate_mantenimiento = () => {
 
   return (
     <div className={styles}>
-      <Navbar_mantenimiento />
       <ShowAll json={responseData}/>
       <h2>Cambiar nombre</h2>
       <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>

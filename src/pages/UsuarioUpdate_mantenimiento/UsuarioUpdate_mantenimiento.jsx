@@ -101,7 +101,6 @@ const UsuarioUpdate_mantenimiento = () => {
 
   return (
     <div className={styles}>
-      <Navbar_mantenimiento />
       <ShowAllUsuarios json={responseData}/>
 
       <h2>Cambiar correo</h2>

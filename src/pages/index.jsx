@@ -5,6 +5,8 @@ import Welcome from './Welcome'
 import BusquedaMensual from './BusquedaMensual'
 import Expediente from './Expediente'
 import Reportes from './Reportes'
+import Mantenimiento from './Mantenimiento'
+import InterfazMedico from './InterfazMedico'
 import MedicoUpdate_mantenimiento from './MedicoUpdate_mantenimiento'
 import MedicoAdd_mantenimiento from './MedicoAdd_mantenimiento'
 import PacienteAdd_mantenimiento from './PacienteAdd_mantenimiento'
@@ -29,32 +31,11 @@ const Page = () => {
       <Route path="/signin">
         <SignIn />
       </Route>
-      <Route path="/busquedamensual">
-        <BusquedaMensual />
+      <Route path="/interfazmedico">
+        <InterfazMedico />
       </Route>
-      <Route path="/expediente">
-        <Expediente />
-      </Route>
-      <Route path="/reportes">
-        <Reportes />
-      </Route>
-      <Route path="/medicoUpdate_mantenimiento">
-        <MedicoUpdate_mantenimiento />
-      </Route>
-      <Route path="/medicoAdd_mantenimiento">
-        <MedicoAdd_mantenimiento />
-      </Route>
-      <Route path="/pacienteUpdate_mantenimiento">
-        <PacienteUpdate_mantenimiento />
-      </Route>
-      <Route path="/pacienteAdd_mantenimiento">
-        <PacienteAdd_mantenimiento />
-      </Route>
-      <Route path="/usuarioUpdate_mantenimiento">
-        <UsuarioUpdate_mantenimiento />
-      </Route>
-      <Route path="/usuarioAdd_mantenimiento">
-        <UsuarioAdd_mantenimiento />
+      <Route path="/mantenimiento">
+        <Mantenimiento />
       </Route>
       <Route path="/">
         <Welcome />
