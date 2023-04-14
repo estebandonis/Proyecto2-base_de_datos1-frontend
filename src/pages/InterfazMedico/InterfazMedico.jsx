@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useLocation } from "react-router-dom"
 import BusquedaMensual from '../BusquedaMensual'
 import Expediente from '../Expediente'
 import Reportes from '../Reportes'
@@ -8,7 +9,13 @@ import Reportes from '../Reportes'
 import { styles } from './InterfazMedico.module.css'
 
 const InterfazMedico = () => {
-  
+  const location = useLocation()
+  const lugarid = location.state.lugarid
+  const num = location.state.num
+
+  console.log(lugarid)
+  console.log(num)
+
   const [busquedaMensual, setBusquedaMensual] = useState(true)
   const [expediente, setExpediente] = useState(false)
   const [reportes, setReportes] = useState(false)
@@ -42,7 +49,7 @@ const InterfazMedico = () => {
       
       {
         busquedaMensual?
-        <BusquedaMensual />
+        <BusquedaMensual lugarid={lugarid} num={num}/>
         :null
       }
       {

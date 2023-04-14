@@ -2,11 +2,10 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
-import { ShowAll, Navbar_mantenimiento } from '../../components'
 
 import { styles } from './MedicoAdd_mantenimiento.module.css'
 
-const MedicoAdd_mantenimiento = () => {
+const MedicoAdd_mantenimiento = ({ lugarid }) => {
 
   const [nombre, setNombre] = useState(null)
   const [apellido, setApellido] = useState(null)
@@ -14,7 +13,6 @@ const MedicoAdd_mantenimiento = () => {
   const [telefono, setTelefono] = useState(null)
   const [num_colegiado, setNum_colegiado] = useState(null)
   const [especialidad, setEspecialidad] = useState(null)
-  const [lugarid, setLugarid] = useState(null)
 
   const handleChangeNombre = (valor) => {
     // 👇 Store the input value to local state
@@ -44,11 +42,6 @@ const MedicoAdd_mantenimiento = () => {
   const handleChangeEspecialidad = (valor) => {
     // 👇 Store the input value to local state
     setEspecialidad(valor.target.value);
-  };
-
-  const handleChangeLugarId = (valor) => {
-    // 👇 Store the input value to local state
-    setLugarid(valor.target.value);
   };
 
   const agregarDoctor = async() => {
@@ -90,9 +83,6 @@ const MedicoAdd_mantenimiento = () => {
       <input type="text" placeholder="Escriba la especialidad" onChange={handleChangeEspecialidad}/>
       <br />
 
-      <h2>Lugarid</h2>
-      <input type="text" placeholder="Escriba el id del lugar" onChange={handleChangeLugarId}/>
-      <br />
       <button onClick={handleClick}>Agregar</button>
     </div>
   )

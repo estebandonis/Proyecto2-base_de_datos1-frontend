@@ -2,11 +2,11 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
-import { ShowAllUsuarios, Navbar_mantenimiento } from '../../components'
+import { ShowAllUsuarios } from '../../components'
 
 import { styles } from './UsuarioUpdate_mantenimiento.module.css'
 
-const UsuarioUpdate_mantenimiento = () => {
+const UsuarioUpdate_mantenimiento = ({ lugarid }) => {
 
   const [responseData, setResponseData] = useState(null)
   const [num_colegiado, setNum_colegiado] = useState(null)
@@ -80,7 +80,7 @@ const UsuarioUpdate_mantenimiento = () => {
 
   const getUsuarios = async() => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/usuarios/")
+      const response = await Axios.get(`http://localhost:3000/api/v1/usuarios/by_lugarid/${lugarid}`)
       return response.data
     } catch (error) {
       console.error(error);
@@ -124,19 +124,6 @@ const UsuarioUpdate_mantenimiento = () => {
       <br />
       <button onClick={handleClickNum_colegiado}>Cambiar</button>
 
-      <h2>Cambiar numero de colegiado</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado actual" onChange={handleChangeNum}/>
-      <br />
-      <input type="text" placeholder="Escriba el nuevo numero de colegiado actual" onChange={handleChangeData}/>
-      <br />
-      <button onClick={handleClickNum_colegiado}>Cambiar</button>
-
-      <h2>Cambiar id del lugar de trabajo</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado actual" onChange={handleChangeNum}/>
-      <br />
-      <input type="text" placeholder="Escriba el nuevo id del lugar" onChange={handleChangeData}/>
-      <br />
-      <button onClick={handleClickLugarId}>Cambiar</button>
     </div>
   )
 }

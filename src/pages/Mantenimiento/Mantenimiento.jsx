@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useLocation } from "react-router-dom"
 import MedicoUpdate_mantenimiento from '../MedicoUpdate_mantenimiento'
 import MedicoAdd_mantenimiento from '../MedicoAdd_mantenimiento'
 import PacienteAdd_mantenimiento from '../PacienteAdd_mantenimiento'
@@ -11,6 +12,8 @@ import UsuarioAdd_mantenimiento from '../UsuarioAdd_mantenimiento'
 import { styles } from './Mantenimiento.module.css'
 
 const Mantenimiento = () => {
+  const location = useLocation()
+  const lugarid = location.state
   
   const [updateMedico, setUpdateMedico] = useState(true)
   const [addMedico, setAddMedico] = useState(false)
@@ -86,23 +89,23 @@ const Mantenimiento = () => {
       
       {
         addMedico?
-        <MedicoAdd_mantenimiento />
+        <MedicoAdd_mantenimiento lugarid={lugarid}/>
         :null
       }
       {
         updateMedico?
-        <MedicoUpdate_mantenimiento />
+        <MedicoUpdate_mantenimiento lugarid={lugarid}/>
         :null
       }
 
       {
         addUsuario?
-        <UsuarioAdd_mantenimiento />
+        <UsuarioAdd_mantenimiento lugarid={lugarid}/>
         :null
       }
       {
         updateUsuario?
-        <UsuarioUpdate_mantenimiento />
+        <UsuarioUpdate_mantenimiento lugarid={lugarid}/>
         :null
       }
 

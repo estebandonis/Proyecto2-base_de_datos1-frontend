@@ -1,12 +1,11 @@
 import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
-import { ShowAll, Navbar_mantenimiento } from '../../components'
+import { useState} from 'react'
 
 import { styles } from './UsuarioAdd_mantenimiento.module.css'
 
-const UsuarioAdd_mantenimiento = () => {
+const UsuarioAdd_mantenimiento = ({ lugarid }) => {
 
   const [correo, setCorreo] = useState(null)
   const [contraseña, setContraseña] = useState(null)
@@ -29,7 +28,7 @@ const UsuarioAdd_mantenimiento = () => {
 
   const agregarUsuario = async() => {
     try {
-      const response = await Axios.post(`http://localhost:3000/api/v1/usuarios/${correo}&${contraseña}&${num_colegiado}`)
+      const response = await Axios.post(`http://localhost:3000/api/v1/usuarios/${correo}&${contraseña}&${num_colegiado}&${lugarid}`)
       return response.data
     } catch (error) {
       console.error(error);

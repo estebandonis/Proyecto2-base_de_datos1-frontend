@@ -2,7 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
-import { ShowAllPacientes, Navbar_mantenimiento } from '../../components'
+import { ShowAllPacientes } from '../../components'
 
 import { styles } from './PacienteUpdate_mantenimiento.module.css'
 
@@ -187,70 +187,70 @@ const PacienteUpdate_mantenimiento = () => {
     <div className={styles}>
       <ShowAllPacientes json={responseData}/>
       <h2>Cambiar nombre</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba el nuevo nombre" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickName}>Cambiar</button>
 
       <h2>Cambiar apellido</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba el nuevo apellido" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickApellido}>Cambiar</button>
 
       <h2>Cambiar direccion</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba la nueva direccion" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickDireccion}>Cambiar</button>
 
       <h2>Cambiar telefono</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba el nuevo telefono" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickTelefono}>Cambiar</button>
 
       <h2>Cambiar Masa Corporal</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba la nueva masa corporal" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickMasaCorporal}>Cambiar</button>
 
       <h2>Cambiar Altura</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba la nueva altura" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickAltura}>Cambiar</button>
 
       <h2>Cambiar Peso</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba el nuevo peso" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickPeso}>Cambiar</button>
 
       <h2>Cambiar Adicción</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba la adicción" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickAdiccion}>Cambiar</button>
 
       <h2>Cambiar Evolucion</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba la evolucion" onChange={handleChangeData}/>
       <br />
       <button onClick={handleClickEvolucion}>Cambiar</button>
 
       <h2>Cambiar Estatus</h2>
-      <input type="text" placeholder="Escriba el numero de colegiado" onChange={handleChangeNum}/>
+      <input type="text" placeholder="Escriba el DPI" onChange={handleChangeNum}/>
       <br />
       <input type="text" placeholder="Escriba el Estatus" onChange={handleChangeData}/>
       <br />

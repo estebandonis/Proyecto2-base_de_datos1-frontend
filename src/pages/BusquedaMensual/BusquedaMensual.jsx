@@ -2,11 +2,11 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import { Navbar, ShowAll } from '../../components'
+import { ShowAll } from '../../components'
 
 import { styles } from './BusquedaMensual.module.css'
 
-const BusquedaMensual = () => {
+const BusquedaMensual = ({ lugarid, num }) => {
   
   const [responseData, setResponseData] = useState(null)
 

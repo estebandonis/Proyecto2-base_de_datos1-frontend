@@ -2,11 +2,11 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
-import { ShowAll, Navbar_mantenimiento } from '../../components'
+import { ShowAll } from '../../components'
 
 import { styles } from './MedicoUpdate_mantenimiento.module.css'
 
-const MedicoUpdate_mantenimiento = () => {
+const MedicoUpdate_mantenimiento = ({ lugarid }) => {
 
   const [responseData, setResponseData] = useState(null)
   const [num_colegiado, setNum_colegiado] = useState(null)
@@ -106,9 +106,9 @@ const MedicoUpdate_mantenimiento = () => {
     }
   }
 
-  const getMedicos = async() => {
+  const getMedicosBylugarid = async() => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/medicos/")
+      const response = await Axios.get(`http://localhost:3000/api/v1/medicos/by_lugarid/${lugarid}`)
       return response.data
     } catch (error) {
       console.error(error);
@@ -116,7 +116,7 @@ const MedicoUpdate_mantenimiento = () => {
   }
 
   const loadMedicos = async () => {
-    setResponseData(await getMedicos())
+    setResponseData(await getMedicosBylugarid())
   }
 
   useEffect(() => {

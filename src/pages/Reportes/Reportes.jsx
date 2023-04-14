@@ -2,7 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import { Navbar, ShowAll } from '../../components'
+import { ShowAll } from '../../components'
 
 import { styles } from './Reportes.module.css'
 

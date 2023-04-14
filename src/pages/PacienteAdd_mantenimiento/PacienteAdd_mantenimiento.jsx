@@ -1,8 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
-import { ShowAll, Navbar_mantenimiento } from '../../components'
+import { useState } from 'react'
 
 import { styles } from './PacienteAdd_mantenimiento.module.css'
 

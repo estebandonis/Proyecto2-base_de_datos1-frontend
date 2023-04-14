@@ -2,7 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import { Navbar, ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos } from '../../components'
+import { ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos } from '../../components'
 
 import { styles, inputs, bloques } from './Expediente.module.css'
 

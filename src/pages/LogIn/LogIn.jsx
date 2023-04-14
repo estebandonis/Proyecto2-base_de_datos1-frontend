@@ -34,16 +34,22 @@ const LogIn = () => {
   const handleClick = async() => {
     const jason = await getTipo()
     var tipo
+    var lugarid
+    var num
 
     {jason.map((row, index) => {
       tipo = row.tipo
+      lugarid = row.lugarid
+      num = row.num_colegiado
     })}
 
+    console.log(num)
+    
     if (tipo == "administrador"){
-      history.push("/mantenimiento")
+      history.push("/mantenimiento", lugarid)
     }
     else {
-      history.push("/interfazmedico")
+      history.push("/interfazmedico", {lugarid: lugarid, num: num})
     }
   }
 
