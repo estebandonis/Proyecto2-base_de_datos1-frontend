@@ -10,9 +10,10 @@ const Navbar_mantenimiento = () => {
       <nav>
         <Link to="/medicoUpdate_mantenimiento">Actualizar Medico</Link>
         <Link to="/medicoAdd_mantenimiento">Agregar Medico</Link>
-        <Link to="/paciente_mantenimiento">Paciente</Link>
-        <Link to="/usuarioAdd_mantenimiento">Agregar Usuario</Link>
+        <Link to="/pacienteUpdate_mantenimiento">Actualizar Paciente</Link>
+        <Link to="/pacienteAdd_mantenimiento">Agregar Paciente</Link>
         <Link to="/usuarioUpdate_mantenimiento">Actualizar Usuario</Link>
+        <Link to="/usuarioAdd_mantenimiento">Agregar Usuario</Link>
       </nav>
     </div>
   )

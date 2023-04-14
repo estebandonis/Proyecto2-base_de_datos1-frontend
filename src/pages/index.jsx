@@ -7,7 +7,8 @@ import Expediente from './Expediente'
 import Reportes from './Reportes'
 import MedicoUpdate_mantenimiento from './MedicoUpdate_mantenimiento'
 import MedicoAdd_mantenimiento from './MedicoAdd_mantenimiento'
-import Paciente_mantenimiento from './Paciente_mantenimiento'
+import PacienteAdd_mantenimiento from './PacienteAdd_mantenimiento'
+import PacienteUpdate_mantenimiento from './PacienteUpdate_mantenimiento'
 import UsuarioUpdate_mantenimiento from './UsuarioUpdate_mantenimiento'
 import UsuarioAdd_mantenimiento from './UsuarioAdd_mantenimiento'
 
@@ -43,8 +44,11 @@ const Page = () => {
       <Route path="/medicoAdd_mantenimiento">
         <MedicoAdd_mantenimiento />
       </Route>
-      <Route path="/paciente_mantenimiento">
-        <Paciente_mantenimiento />
+      <Route path="/pacienteUpdate_mantenimiento">
+        <PacienteUpdate_mantenimiento />
+      </Route>
+      <Route path="/pacienteAdd_mantenimiento">
+        <PacienteAdd_mantenimiento />
       </Route>
       <Route path="/usuarioUpdate_mantenimiento">
         <UsuarioUpdate_mantenimiento />
