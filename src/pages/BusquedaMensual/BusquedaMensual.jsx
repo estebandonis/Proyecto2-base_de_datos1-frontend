@@ -2,39 +2,42 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import { ShowAll } from '../../components'
+import { ShowAllBusquedaMensual } from '../../components'
 
 import { styles } from './BusquedaMensual.module.css'
 
-const BusquedaMensual = ({ lugarid, num }) => {
+const BusquedaMensual = ({ lugarid }) => {
   
   const [responseData, setResponseData] = useState(null)
+  const [show, setShow] = useState(null)
 
-  const getMedicos = async() => {
+  const getReporte = async() => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/medicos/")
-      console.log(response.data)
+      const response = await Axios.get(`http://localhost:3000/api/v1/queries/reporte_mensual/${lugarid}`)
       return response.data
     } catch (error) {
       console.error(error);
     }
   }
 
-  const loadMedicos = async () => {
-    setResponseData(await getMedicos())
+  const loadReporte = async () => {
+    setResponseData(await getReporte())
   }
 
-  useEffect(() => {
-    loadMedicos()
-  }, [])
-
-  if (!responseData) {
-    return 'Loading...'
+  const handleClick = async() => {
+    await loadReporte()
+    setShow(true)
   }
   
   return (
     <div className={styles}>
-      <ShowAll json={responseData}/>
+      <button onClick={handleClick}>Ver Busqueda Mensual</button>
+      <h2>Busqueda Mensual</h2>
+      {
+        show?
+        <ShowAllBusquedaMensual json={responseData}/>
+        :null
+      }
     </div>
   )
 }

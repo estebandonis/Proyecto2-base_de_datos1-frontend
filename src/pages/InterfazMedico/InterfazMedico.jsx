@@ -13,9 +13,6 @@ const InterfazMedico = () => {
   const lugarid = location.state.lugarid
   const num = location.state.num
 
-  console.log(lugarid)
-  console.log(num)
-
   const [busquedaMensual, setBusquedaMensual] = useState(true)
   const [expediente, setExpediente] = useState(false)
   const [reportes, setReportes] = useState(false)
@@ -49,7 +46,7 @@ const InterfazMedico = () => {
       
       {
         busquedaMensual?
-        <BusquedaMensual lugarid={lugarid} num={num}/>
+        <BusquedaMensual lugarid={lugarid}/>
         :null
       }
       {
