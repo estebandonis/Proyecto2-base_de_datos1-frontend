@@ -12,14 +12,16 @@ const ShowAllTopMedicos = ({ json }) => {
             border:`1px solid white`
             }}>
             <tr>
+              <th>ID del Médico</th>
               <th>Nombre del Médico</th>
               <th>Cantidad de Pacientes Atendidos</th>
             </tr>
 
         {json.map((row, index) => {
           return <tr>
-                <th>{row.nombre}</th>
-                <th>{row.num_pacientes}</th>
+                <th>{row.medicoid}</th>
+                <th>{row.medico_nombre}</th>
+                <th>{row.total_visitas}</th>
               </tr>
         })}
       </table>
