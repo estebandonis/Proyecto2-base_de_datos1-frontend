@@ -42,8 +42,6 @@ const LogIn = () => {
       lugarid = row.lugarid
       num = row.num_colegiado
     })}
-
-    console.log(num)
     
     if (tipo == "administrador"){
       history.push("/mantenimiento", lugarid)

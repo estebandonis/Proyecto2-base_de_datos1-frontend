@@ -11,6 +11,8 @@ const SignIn = () => {
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [num_colegiado, setNum_colegiado] = useState("");
+  //const [lugarid, setLugarid] = useState("");
+  var lugarid
   const history = useHistory()
 
   const handleChangeCorreo = (valor) => {
@@ -28,9 +30,22 @@ const SignIn = () => {
     setNum_colegiado(valor.target.value);
   };
 
+  const getUserLugarid = async() => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/api/v1/usuarios/get_lugarid/${num_colegiado}`)
+      const jason = response.data
+      {jason.map((row, index) => {
+        lugarid = row.lugarid
+      })}
+      return response.data
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   const addUser = async() => {
     try {
-      const response = await Axios.post(`http://localhost:3000/api/v1/usuarios/${correo}&${contraseña}&${num_colegiado}`)
+      const response = await Axios.post(`http://localhost:3000/api/v1/usuarios/${correo}&${contraseña}&${num_colegiado}&${lugarid}`)
       return response.data
     } catch (error) {
       console.error(error);
@@ -38,8 +53,10 @@ const SignIn = () => {
   }
 
   const handleClick = async() => {
+    await getUserLugarid()
+    
     await addUser()
-    history.push('/interfazmedico')
+    history.push("/interfazmedico", {lugarid: lugarid, num: num_colegiado})
   }
 
   return (
