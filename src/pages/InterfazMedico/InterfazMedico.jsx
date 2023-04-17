@@ -15,24 +15,15 @@ const InterfazMedico = () => {
 
   const [busquedaMensual, setBusquedaMensual] = useState(true)
   const [expediente, setExpediente] = useState(false)
-  const [reportes, setReportes] = useState(false)
   
   const handleClickBusquedaMensual = async() => {
     setBusquedaMensual(true)
     setExpediente(false)
-    setReportes(false)
   }
 
   const handleClickExpediente = async() => {
     setBusquedaMensual(false)
     setExpediente(true)
-    setReportes(false)
-  }
-
-  const handleClickReportes = async() => {
-    setBusquedaMensual(false)
-    setExpediente(false)
-    setReportes(true)
   }
 
 
@@ -41,7 +32,6 @@ const InterfazMedico = () => {
       <nav>
         <button onClick={handleClickBusquedaMensual}>Busqueda Mensual</button>
         <button onClick={handleClickExpediente}>Expediente</button>
-        <button onClick={handleClickReportes}>Reportes</button>
       </nav>
       
       {
@@ -52,11 +42,6 @@ const InterfazMedico = () => {
       {
         expediente?
         <Expediente />
-        :null
-      }
-      {
-        reportes?
-        <Reportes />
         :null
       }
 

@@ -2,17 +2,19 @@ import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import { ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos } from '../../components'
+import { ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos, ShowAllLugaresVisitados, ShowAllVisitas } from '../../components'
 
 import { styles, inputs, bloques } from './Expediente.module.css'
 
 const Expediente = () => {
   
   const [responseData, setResponseData] = useState(null)
+  const [visitas, setVisitas] = useState(null)
   const [examenes, setExamenes] = useState(null)
   const [cirugias, setCirugias] = useState(null)
   const [medicos, setMedicos] = useState(null)
   const [medicamentos, setMedicamentos] = useState(null)
+  const [lugaresVisitados, setLugaresVisitados] = useState(null)
   const [inputText, setInputText] = useState("")
   const [show, setShow] = useState(false)
 
@@ -28,6 +30,20 @@ const Expediente = () => {
   const loadPacienteByDPI = async () => {
     setResponseData(await getPacientesByDPI())
   }
+
+  const getVisitas = async() => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/api/v1/visitas/get_visitas_especific/${inputText}`)
+      return response.data
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const loadVisitas = async () => {
+    setVisitas(await getVisitas())
+  }
+
 
   const getExamenes = async() => {
     try {
@@ -81,6 +97,19 @@ const Expediente = () => {
     setMedicamentos(await getMedicamentos())
   }
 
+  const getLugaresVisitados = async() => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/api/v1/visitas/get_lugares_visitados/${inputText}`)
+      return response.data
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const loadLugaresVisitados = async () => {
+    setLugaresVisitados(await getLugaresVisitados())
+  }
+
   const handleChange = (valor) => {
     // 👇 Store the input value to local state
     setInputText(valor.target.value)
@@ -88,10 +117,13 @@ const Expediente = () => {
 
   const handleClick = async() => {
     await loadPacienteByDPI()
+    await loadVisitas()
     await loadExamenes()
     await loadCirugias()
     await loadMedicos()
     await loadMedicamentos()
+    await loadLugaresVisitados()
+
     setShow(true)
   }
 
@@ -108,6 +140,14 @@ const Expediente = () => {
           <ShowAllPacientes json={responseData}/>
           :null
         }
+
+      <h2>Visitas Completas del Paciente</h2>
+        {
+          show?
+          <ShowAllVisitas json={visitas}/>
+          :null
+        }
+
       <h2>Examenes Paciente</h2>
         {
           show?
@@ -130,6 +170,12 @@ const Expediente = () => {
         {
           show?
           <ShowAllMedicamentos json={medicamentos}/>
+          :null
+        }
+      <h2>Centros de Salud Visitados</h2>
+        {
+          show?
+          <ShowAllLugaresVisitados json={lugaresVisitados}/>
           :null
         }
       </div>

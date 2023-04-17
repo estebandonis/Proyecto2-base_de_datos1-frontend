@@ -8,6 +8,7 @@ import PacienteAdd_mantenimiento from '../PacienteAdd_mantenimiento'
 import PacienteUpdate_mantenimiento from '../PacienteUpdate_mantenimiento'
 import UsuarioUpdate_mantenimiento from '../UsuarioUpdate_mantenimiento'
 import UsuarioAdd_mantenimiento from '../UsuarioAdd_mantenimiento'
+import Reportes from '../Reportes'
 
 import { styles } from './Mantenimiento.module.css'
 
@@ -21,6 +22,7 @@ const Mantenimiento = () => {
   const [addUsuario, setAddUsuario] = useState(false)
   const [updatePaciente, setUpdatePaciente] = useState(false)
   const [addPaciente, setAddPaciente] = useState(false)
+  const [reporteria, setReporteria] = useState(false)
   
   const handleClickUpdateMedico = async() => {
     setUpdateMedico(true)
@@ -29,6 +31,7 @@ const Mantenimiento = () => {
     setAddUsuario(false)
     setUpdatePaciente(false)
     setAddPaciente(false)
+    setReporteria(false)
   }
 
   const handleClickAddMedico = async() => {
@@ -38,6 +41,7 @@ const Mantenimiento = () => {
     setAddUsuario(false)
     setUpdatePaciente(false)
     setAddPaciente(false)
+    setReporteria(false)
   }
 
   const handleClickUpdateUsuario = async() => {
@@ -47,6 +51,7 @@ const Mantenimiento = () => {
     setAddUsuario(false)
     setUpdatePaciente(false)
     setAddPaciente(false)
+    setReporteria(false)
   }
 
   const handleClickAddUsuario = async() => {
@@ -56,6 +61,7 @@ const Mantenimiento = () => {
     setAddUsuario(true)
     setUpdatePaciente(false)
     setAddPaciente(false)
+    setReporteria(false)
   }
 
   const handleClickUpdatePaciente = async() => {
@@ -65,6 +71,7 @@ const Mantenimiento = () => {
     setAddUsuario(false)
     setUpdatePaciente(true)
     setAddPaciente(false)
+    setReporteria(false)
   }
 
   const handleClickAddPaciente = async() => {
@@ -74,6 +81,17 @@ const Mantenimiento = () => {
     setAddUsuario(false)
     setUpdatePaciente(false)
     setAddPaciente(true)
+    setReporteria(false)
+  }
+
+  const handleClickReporteria = async() => {
+    setUpdateMedico(false)
+    setAddMedico(false)
+    setUpdateUsuario(false)
+    setAddUsuario(false)
+    setUpdatePaciente(false)
+    setAddPaciente(false)
+    setReporteria(true)
   }
 
   return (
@@ -85,6 +103,7 @@ const Mantenimiento = () => {
         <button onClick={handleClickAddUsuario}>Agregar Usuario</button>
         <button onClick={handleClickUpdatePaciente}>Actualizar Paciente</button>
         <button onClick={handleClickAddPaciente}>Agregar Paciente</button>
+        <button onClick={handleClickReporteria}>Reporteria</button>
       </nav>
       
       {
@@ -117,6 +136,11 @@ const Mantenimiento = () => {
       {
         updatePaciente?
         <PacienteUpdate_mantenimiento />
+        :null
+      }
+      {
+        reporteria?
+        <Reportes />
         :null
       }
 

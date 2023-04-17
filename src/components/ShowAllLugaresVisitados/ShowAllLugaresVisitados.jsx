@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { styles } from './ShowAllMedicamentos.module.css'
+import { styles } from './ShowAllLugaresVisitados.module.css'
 
-const ShowAllMedicamentos = ({ json }) => {
+const ShowAllLugaresVisitados = ({ json }) => {
 
   return (
     <div className={styles}>
@@ -12,16 +12,16 @@ const ShowAllMedicamentos = ({ json }) => {
             border:`1px solid white`
             }}>
             <tr>
-              <th>Fecha donde asignaron medicamento</th>
-              <th>Medicamento</th>
-              <th>Evolución</th>
+              <th>Nombre del Hospital visitado</th>
+              <th>Fecha de Visita</th>
+              <th>Hora de Visita</th>
             </tr>
 
         {json.map((row, index) => {
           return <tr>
+                <th>{row.nombre}</th>
                 <th>{row.fecha}</th>
-                <th>{row.medicamentos}</th>
-                <th>{row.evolucion}</th>
+                <th>{row.hora}</th>
               </tr>
         })}
       </table>
@@ -29,8 +29,8 @@ const ShowAllMedicamentos = ({ json }) => {
   )
 }
 
-ShowAllMedicamentos.propTypes = {
+ShowAllLugaresVisitados.propTypes = {
   json: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
 }
 
-export default ShowAllMedicamentos
+export default ShowAllLugaresVisitados

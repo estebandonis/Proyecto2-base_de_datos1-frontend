@@ -10,5 +10,7 @@ import ShowAllEnfermedadesMortales from './ShowAllEnfermedadesMortales'
 import ShowAllPacientesMasVisitas from './ShowAllPacientesMasVisitas'
 import ShowAllHospitalesMasPacientes from './ShowAllHospitalesMasPacientes'
 import ShowAllBusquedaMensual from './ShowAllBusquedaMensual'
+import ShowAllLugaresVisitados from './ShowAllLugaresVisitados'
+import ShowAllVisitas from './ShowAllVisitas'
 
-export { ShowAll, ShowAllUsuarios, ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos, ShowAllTopMedicos,  ShowAllEnfermedadesMortales, ShowAllPacientesMasVisitas, ShowAllHospitalesMasPacientes, ShowAllBusquedaMensual }
+export { ShowAll, ShowAllUsuarios, ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos, ShowAllTopMedicos,  ShowAllEnfermedadesMortales, ShowAllPacientesMasVisitas, ShowAllHospitalesMasPacientes, ShowAllBusquedaMensual, ShowAllLugaresVisitados, ShowAllVisitas }
