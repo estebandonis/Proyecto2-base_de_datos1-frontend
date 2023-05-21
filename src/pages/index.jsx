@@ -1,11 +1,14 @@
 import React from 'react'
+import {
+  Switch,
+  Route,
+} from 'react-router-dom'
+
 import LogIn from './LogIn'
 import SignIn from './SignIn'
 import Welcome from './Welcome'
 import Mantenimiento from './Mantenimiento'
 import InterfazMedico from './InterfazMedico'
-
-import { Switch, Route } from 'react-router-dom'
 
 const navigate = (page) => {
   window.location = `/?route=${page}`

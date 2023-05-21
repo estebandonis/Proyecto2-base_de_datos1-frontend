@@ -1,53 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Axios from 'axios'
-import PropTypes from 'prop-types'
-import { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 import { styles } from './LogIn.module.css'
 
 const LogIn = () => {
-
-  const [correo, setCorreo] = useState("");
-  const [contraseña, setContraseña] = useState("");
+  const [correo, setCorreo] = useState('')
+  const [contraseña, setContraseña] = useState('')
   const history = useHistory()
 
   const handleChangeCorreo = (valor) => {
     // 👇 Store the input value to local state
-    setCorreo(valor.target.value);
-  };
+    setCorreo(valor.target.value)
+  }
 
   const handleChangeContraseña = (valor) => {
     // 👇 Store the input value to local state
-    setContraseña(valor.target.value);
-  };
+    setContraseña(valor.target.value)
+  }
 
-  const getTipo = async() => {
+  const getTipo = async () => {
     try {
       const response = await Axios.get(`http://localhost:3000/api/v1/usuarios/${correo}&${contraseña}`)
       return response.data
     } catch (error) {
-      console.error(error);
+      return 'Hubo un error'
     }
   }
 
-  const handleClick = async() => {
+  const handleClick = async () => {
     const jason = await getTipo()
-    var tipo
-    var lugarid
-    var num
+    let tipo
+    let lugid
+    let nom
 
-    {jason.map((row, index) => {
+    { jason.map((row) => {
       tipo = row.tipo
-      lugarid = row.lugarid
-      num = row.num_colegiado
-    })}
-    
-    if (tipo == "administrador"){
-      history.push("/mantenimiento", lugarid)
-    }
-    else {
-      history.push("/interfazmedico", {lugarid: lugarid, num: num})
+      lugid = row.lugarid
+      nom = row.num_colegiado
+      return tipo
+    }) }
+
+    if (tipo === 'administrador') {
+      history.push('/mantenimiento', lugid)
+    } else {
+      history.push('/interfazmedico', { lugarid: lugid, num: nom })
     }
   }
 
@@ -57,17 +54,13 @@ const LogIn = () => {
       <h2>Correo</h2>
       <input type="text" placeholder="Escriba su correo" onChange={handleChangeCorreo} />
       <h2>Contraseña</h2>
-      <input type="text" placeholder="Escriba su contraseña" onChange={handleChangeContraseña}/>
+      <input type="text" placeholder="Escriba su contraseña" onChange={handleChangeContraseña} />
       <br />
-      <button onClick={handleClick}>Ingresar</button>
+      <button type="submit" onClick={handleClick}>Ingresar</button>
       <br />
       <Link to="/signin">Registrate</Link>
     </div>
   )
-}
-
-LogIn.propTypes = {
-  letter: PropTypes.string
 }
 
 export default LogIn

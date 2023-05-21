@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Axios from 'axios'
-import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
-import { ShowAllTopMedicos, ShowAllEnfermedadesMortales, ShowAllPacientesMasVisitas, ShowAllHospitalesMasPacientes } from '../../components'
+import {
+  ShowAllTopMedicos,
+  ShowAllEnfermedadesMortales,
+  ShowAllPacientesMasVisitas,
+  ShowAllHospitalesMasPacientes,
+} from '../../components'
 
 import { styles } from './Reportes.module.css'
 
 const Reportes = () => {
-  
   const [responseData, setResponseData] = useState(null)
   const [responseData1, setResponseData1] = useState(null)
   const [responseData2, setResponseData2] = useState(null)
   const [responseData3, setResponseData3] = useState(null)
   const [show, setShow] = useState(false)
-  
-  const getTopMedicos = async() => {
+
+  const getTopMedicos = async () => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/queries/top_medicos/")
+      const response = await Axios.get('http://localhost:3000/api/v1/queries/top_medicos/')
       return response.data
     } catch (error) {
-      console.error(error);
+      return 'Hubo un error'
     }
   }
 
@@ -27,12 +29,12 @@ const Reportes = () => {
     setResponseData(await getTopMedicos())
   }
 
-  const getTopEnfermedades = async() => {
+  const getTopEnfermedades = async () => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/queries/enfermedades_mortales/")
+      const response = await Axios.get('http://localhost:3000/api/v1/queries/enfermedades_mortales/')
       return response.data
     } catch (error) {
-      console.error(error);
+      return 'Hubo un error'
     }
   }
 
@@ -40,12 +42,12 @@ const Reportes = () => {
     setResponseData1(await getTopEnfermedades())
   }
 
-  const getTopPacientes = async() => {
+  const getTopPacientes = async () => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/queries/get_pacientesvisitas/")
+      const response = await Axios.get('http://localhost:3000/api/v1/queries/get_pacientesvisitas/')
       return response.data
     } catch (error) {
-      console.error(error);
+      return 'Hubo un error'
     }
   }
 
@@ -53,12 +55,12 @@ const Reportes = () => {
     setResponseData2(await getTopPacientes())
   }
 
-  const getTopHospitales = async() => {
+  const getTopHospitales = async () => {
     try {
-      const response = await Axios.get("http://localhost:3000/api/v1/queries/top_hospitales/")
+      const response = await Axios.get('http://localhost:3000/api/v1/queries/top_hospitales/')
       return response.data
     } catch (error) {
-      console.error(error);
+      return 'Hubo un error'
     }
   }
 
@@ -66,55 +68,35 @@ const Reportes = () => {
     setResponseData3(await getTopHospitales())
   }
 
-  /*useEffect(() => {
-    loadTopMedicos()
-    loadTopEnfermedades()
-    loadTopPacientes()
-    loadTopHospitales()
-    //setShow(true)
-  }, [])*/
-
-  const handleClick = async() => {
+  const handleClick = async () => {
     await loadTopMedicos()
     await loadTopEnfermedades()
     await loadTopPacientes()
     await loadTopHospitales()
     setShow(true)
   }
-  
+
   return (
     <div className={styles}>
-      <button onClick={handleClick}>Ver reporte</button>
+      <button type="submit" onClick={handleClick}>Ver reporte</button>
       <h2>Médicos que han atendido más pacientes</h2>
       {
-        show?
-        <ShowAllTopMedicos json={responseData}/>
-        :null
+        show ? <ShowAllTopMedicos json={responseData} /> : null
       }
       <h2>Enfermedades más mortales</h2>
       {
-        show?
-        <ShowAllEnfermedadesMortales json={responseData1}/>
-        :null
+        show ? <ShowAllEnfermedadesMortales json={responseData1} /> : null
       }
       <h2>Pacientes que han visitado más una unidad de salud</h2>
       {
-        show?
-        <ShowAllPacientesMasVisitas json={responseData2}/>
-        :null
+        show ? <ShowAllPacientesMasVisitas json={responseData2} /> : null
       }
       <h2>Hospitales que han atendido a más pacientes</h2>
       {
-        show?
-        <ShowAllHospitalesMasPacientes json={responseData3}/>
-        :null
+        show ? <ShowAllHospitalesMasPacientes json={responseData3} /> : null
       }
     </div>
   )
-}
-
-Reportes.propTypes = {
-  letter: PropTypes.string
 }
 
 export default Reportes

@@ -1,21 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useState } from 'react'
-import { useLocation } from "react-router-dom"
-import MedicoUpdate_mantenimiento from '../MedicoUpdate_mantenimiento'
-import MedicoAdd_mantenimiento from '../MedicoAdd_mantenimiento'
-import PacienteAdd_mantenimiento from '../PacienteAdd_mantenimiento'
-import PacienteUpdate_mantenimiento from '../PacienteUpdate_mantenimiento'
-import UsuarioUpdate_mantenimiento from '../UsuarioUpdate_mantenimiento'
-import UsuarioAdd_mantenimiento from '../UsuarioAdd_mantenimiento'
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import MedicoUpdateMantenimiento from '../MedicoUpdate_mantenimiento'
+import MedicoAddMantenimiento from '../MedicoAdd_mantenimiento'
+import PacienteAddMantenimiento from '../PacienteAdd_mantenimiento'
+import PacienteUpdateMantenimiento from '../PacienteUpdate_mantenimiento'
+import UsuarioUpdateMantenimiento from '../UsuarioUpdate_mantenimiento'
+import UsuarioAddMantenimiento from '../UsuarioAdd_mantenimiento'
 import Reportes from '../Reportes'
-
 import { styles } from './Mantenimiento.module.css'
 
 const Mantenimiento = () => {
   const location = useLocation()
   const lugarid = location.state
-  
+
   const [updateMedico, setUpdateMedico] = useState(true)
   const [addMedico, setAddMedico] = useState(false)
   const [updateUsuario, setUpdateUsuario] = useState(false)
@@ -23,8 +20,8 @@ const Mantenimiento = () => {
   const [updatePaciente, setUpdatePaciente] = useState(false)
   const [addPaciente, setAddPaciente] = useState(false)
   const [reporteria, setReporteria] = useState(false)
-  
-  const handleClickUpdateMedico = async() => {
+
+  const handleClickUpdateMedico = async () => {
     setUpdateMedico(true)
     setAddMedico(false)
     setUpdateUsuario(false)
@@ -34,7 +31,7 @@ const Mantenimiento = () => {
     setReporteria(false)
   }
 
-  const handleClickAddMedico = async() => {
+  const handleClickAddMedico = async () => {
     setUpdateMedico(false)
     setAddMedico(true)
     setUpdateUsuario(false)
@@ -44,7 +41,7 @@ const Mantenimiento = () => {
     setReporteria(false)
   }
 
-  const handleClickUpdateUsuario = async() => {
+  const handleClickUpdateUsuario = async () => {
     setUpdateMedico(false)
     setAddMedico(false)
     setUpdateUsuario(true)
@@ -54,7 +51,7 @@ const Mantenimiento = () => {
     setReporteria(false)
   }
 
-  const handleClickAddUsuario = async() => {
+  const handleClickAddUsuario = async () => {
     setUpdateMedico(false)
     setAddMedico(false)
     setUpdateUsuario(false)
@@ -64,7 +61,7 @@ const Mantenimiento = () => {
     setReporteria(false)
   }
 
-  const handleClickUpdatePaciente = async() => {
+  const handleClickUpdatePaciente = async () => {
     setUpdateMedico(false)
     setAddMedico(false)
     setUpdateUsuario(false)
@@ -74,7 +71,7 @@ const Mantenimiento = () => {
     setReporteria(false)
   }
 
-  const handleClickAddPaciente = async() => {
+  const handleClickAddPaciente = async () => {
     setUpdateMedico(false)
     setAddMedico(false)
     setUpdateUsuario(false)
@@ -84,7 +81,7 @@ const Mantenimiento = () => {
     setReporteria(false)
   }
 
-  const handleClickReporteria = async() => {
+  const handleClickReporteria = async () => {
     setUpdateMedico(false)
     setAddMedico(false)
     setUpdateUsuario(false)
@@ -97,59 +94,41 @@ const Mantenimiento = () => {
   return (
     <div className={styles}>
       <nav>
-        <button onClick={handleClickUpdateMedico}>Actualizar Medico</button>
-        <button onClick={handleClickAddMedico}>Agregar Medico</button>
-        <button onClick={handleClickUpdateUsuario}>Actualizar Usuario</button>
-        <button onClick={handleClickAddUsuario}>Agregar Usuario</button>
-        <button onClick={handleClickUpdatePaciente}>Actualizar Paciente</button>
-        <button onClick={handleClickAddPaciente}>Agregar Paciente</button>
-        <button onClick={handleClickReporteria}>Reporteria</button>
+        <button type="submit" onClick={handleClickUpdateMedico}>Actualizar Medico</button>
+        <button type="submit" onClick={handleClickAddMedico}>Agregar Medico</button>
+        <button type="submit" onClick={handleClickUpdateUsuario}>Actualizar Usuario</button>
+        <button type="submit" onClick={handleClickAddUsuario}>Agregar Usuario</button>
+        <button type="submit" onClick={handleClickUpdatePaciente}>Actualizar Paciente</button>
+        <button type="submit" onClick={handleClickAddPaciente}>Agregar Paciente</button>
+        <button type="submit" onClick={handleClickReporteria}>Reporteria</button>
       </nav>
-      
+
       {
-        addMedico?
-        <MedicoAdd_mantenimiento lugarid={lugarid}/>
-        :null
+        addMedico ? <MedicoAddMantenimiento lugarid={lugarid} /> : null
       }
       {
-        updateMedico?
-        <MedicoUpdate_mantenimiento lugarid={lugarid}/>
-        :null
+        updateMedico ? <MedicoUpdateMantenimiento lugarid={lugarid} /> : null
       }
 
       {
-        addUsuario?
-        <UsuarioAdd_mantenimiento lugarid={lugarid}/>
-        :null
+        addUsuario ? <UsuarioAddMantenimiento lugid={lugarid} /> : null
       }
       {
-        updateUsuario?
-        <UsuarioUpdate_mantenimiento lugarid={lugarid}/>
-        :null
+        updateUsuario ? <UsuarioUpdateMantenimiento lugid={lugarid} /> : null
       }
 
       {
-        addPaciente?
-        <PacienteAdd_mantenimiento />
-        :null
+        addPaciente ? <PacienteAddMantenimiento /> : null
       }
       {
-        updatePaciente?
-        <PacienteUpdate_mantenimiento />
-        :null
+        updatePaciente ? <PacienteUpdateMantenimiento /> : null
       }
       {
-        reporteria?
-        <Reportes />
-        :null
+        reporteria ? <Reportes /> : null
       }
 
     </div>
   )
-}
-
-Mantenimiento.propTypes = {
-  letter: PropTypes.string
 }
 
 export default Mantenimiento

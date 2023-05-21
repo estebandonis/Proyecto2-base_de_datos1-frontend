@@ -9,12 +9,12 @@ export default defineConfig({
     alias: [
       {
         find: '@components',
-        replacement: resolve(__dirname, './src/components')
+        replacement: resolve(__dirname, './src/components'),
       },
       {
         find: '@pages',
-        replacement: resolve(__dirname, './src/pages')
-      }
-    ]
-  }
+        replacement: resolve(__dirname, './src/pages'),
+      },
+    ],
+  },
 })

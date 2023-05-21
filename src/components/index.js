@@ -13,4 +13,19 @@ import ShowAllBusquedaMensual from './ShowAllBusquedaMensual'
 import ShowAllLugaresVisitados from './ShowAllLugaresVisitados'
 import ShowAllVisitas from './ShowAllVisitas'
 
-export { ShowAll, ShowAllUsuarios, ShowAllPacientes, ShowAllExamenes, ShowAllCirugias, ShowAllMedicosPaciente, ShowAllMedicamentos, ShowAllTopMedicos,  ShowAllEnfermedadesMortales, ShowAllPacientesMasVisitas, ShowAllHospitalesMasPacientes, ShowAllBusquedaMensual, ShowAllLugaresVisitados, ShowAllVisitas }
+export {
+  ShowAll,
+  ShowAllUsuarios,
+  ShowAllPacientes,
+  ShowAllExamenes,
+  ShowAllCirugias,
+  ShowAllMedicosPaciente,
+  ShowAllMedicamentos,
+  ShowAllTopMedicos,
+  ShowAllEnfermedadesMortales,
+  ShowAllPacientesMasVisitas,
+  ShowAllHospitalesMasPacientes,
+  ShowAllBusquedaMensual,
+  ShowAllLugaresVisitados,
+  ShowAllVisitas,
+}

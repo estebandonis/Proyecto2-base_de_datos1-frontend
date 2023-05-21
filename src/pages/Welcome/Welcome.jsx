@@ -1,11 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import { styles, login, signin, all } from './Welcome.module.css'
+import {
+  styles,
+  login,
+  signin,
+  all,
+} from './Welcome.module.css'
 
 const Welcome = () => {
-
   return (
     <dir className={all}>
       <div className={styles}>
@@ -14,10 +17,6 @@ const Welcome = () => {
       </div>
     </dir>
   )
-}
-
-Welcome.propTypes = {
-  letter: PropTypes.string
 }
 
 export default Welcome
